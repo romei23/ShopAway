@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="details-style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-left">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Store Logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">All Products</a></li>
+                    <li class="dropdown">
+                        <a href="#">Category ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Books</a></li>
+                            <li><a href="#">Electronics</a></li>
+                            <li><a href="#">Furniture</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="nav-right">
+            <nav>
+                <ul>
+                    <li><a href="sign-in.html">Sign In</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button type="submit">Search</button>
+        </div>
+    </header>
+    
+    <section class="product-details">
+        <div class="product-image">
+            <img src="images/lotr-book.jpg" alt="The Two Towers">
+        </div>
+        <div class="product-info">
+            <h2>Lord of The Rings: The Two Towers</h2>
+            <p><strong>Description:</strong> The second volume of J.R.R. Tolkien's epic fantasy trilogy, "The Lord of the Rings." It follows Frodo and Sam as they continue their perilous journey to Mordor, while Aragorn, Legolas, and Gimli battle to defend Middle-earth.</p>
+            <p><strong>Price:</strong> <span class="price">$19.99</span></p>
+            <p><strong>Author:</strong> J.R.R. Tolkien</p>
+            <p><strong>Genre:</strong> Fantasy</p>
+            <p><strong>Rating:</strong> 9/10</p>
+            <p><strong>Condition:</strong> New</p>
+
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 StoreName. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopAway</title>
+  <link rel="stylesheet" href="index-style.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-left">
+      <a href="index.html">
+        <img src="images/logo.png" alt="ShopAway Logo" class="logo" />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All Products</a></li>
+          <li class="dropdown">
+            <a href="#">Category ▼</a>
+            <ul class="dropdown-menu">
+              <li><a href="products.html?category=books">Books</a></li>
+              <li><a href="products.html?category=electronics">Electronics</a></li>
+              <li><a href="products.html?category=furniture">Furniture</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="search-bar">
+      <form action="products.html" method="GET">
+        <input type="text" name="search" placeholder="Search products..." />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <div class="nav-right">
+      <nav>
+        <ul>
+          <li><a href="sign-in.html">Sign In</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="splash">
+    <div class="splash-content">
+      <h1>Welcome to ShopAway</h1>
+      <p>Your One-Stop Shop for Everything You Need!</p>
+      <a href="products.html" class="shop-now-btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="featured-products">
+    <h2>Trending Now</h2>
+    <div class="product-grid">
+      <p>Loading featured products...</p>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us">
+    <h2>Why Choose Us?</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="images/shipping.png" alt="Free Shipping" />
+        <p>Free Shipping</p>
+      </div>
+      <div class="feature">
+        <img src="images/technical-support.png" alt="24/7 Support" />
+        <p>24/7 Support</p>
+      </div>
+      <div class="feature">
+        <img src="images/return.png" alt="Easy Returns" />
+        <p>Easy Returns</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">
+      <p>"ShopAway has the best products and amazing customer service!" - David R.</p>
+    </div>
+    <div class="testimonial">
+      <p>"Fast shipping and quality products. Highly recommend!" - Chris N.</p>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="newsletter">
+    <h2>Stay Updated</h2>
+    <p>Sign up for our newsletter to get the latest deals and updates.</p>
+    <form action="#">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ShopAway. All rights reserved.</p>
+  </footer>
+
+  <!-- 🛒 Load Featured Products from API -->
+  <script>
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(products => {
+        const container = document.querySelector('.product-grid');
+        container.innerHTML = '';
+
+        // Show only 3 featured/trending products
+        products.slice(0, 3).forEach(product => {
+          container.innerHTML += `
+            <div class="product">
+              <img src="${product.image}" alt="${product.name}">
+              <p>${product.name}</p>
+              <p>Price: $${product.price}</p>
+              <a href="product-detail.html?id=${product.id}" class="details-button">View Details</a>
+            </div>`;
+        });
+      })
+      .catch(err => {
+        document.querySelector('.product-grid').innerHTML = '<p>Failed to load products.</p>';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

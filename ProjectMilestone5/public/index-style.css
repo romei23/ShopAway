@@ -1,0 +1,373 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100vw;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    background-color: #1f3d2b;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.search-bar {
+    position: absolute;
+    left: 500px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+    flex-grow: 1;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #1f3d2b;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #295c3a;
+}
+
+.logo {
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px 0;
+    min-width: 150px;
+}
+
+.menu li {
+    position: relative;
+    list-style: none;
+    float: left;
+    display: block;
+    height: 40px;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #1f3d2b;
+    color: white;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: white;
+    color: #1f3d2b;
+    border: 1px solid #1f3d2b;
+}
+
+
+.splash {
+    display: flex;
+    background: url('images/background.jpg');
+    background-position: center -80px;
+    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.splash h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.splash p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.splash .shop-now-btn {
+    background-color: #ff6600;
+    color: white;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.splash .shop-now-btn:hover {
+    background-color: #e65c00;
+}
+
+/* Featured Products */
+.featured-products {
+    padding: 50px;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.featured-products h2 {
+    font-size: 32px;
+    color: #1f3d2b;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 10px;
+    object-fit: contain;
+}
+
+.product p {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.product a {
+    display: inline-block;
+    background-color: #1f3d2b;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.product a:hover {
+    background-color: #295c3a;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+    background-color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    font-size: 32px;
+    color: #1f3d2b;
+    margin-bottom: 20px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    width: 200px;
+    text-align: center;
+}
+
+.feature img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+/* Customer Testimonials */
+.testimonials {
+    padding: 50px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 32px;
+    color: #1f3d2b;
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    background: white;
+    padding: 20px;
+    margin: 10px auto;
+    width: 60%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Newsletter Signup */
+.newsletter {
+    text-align: center;
+    padding: 50px;
+    background-color: white;
+}
+
+.newsletter h2 {
+    font-size: 32px;
+    color: #1f3d2b;
+    margin-bottom: 10px;
+}
+
+.newsletter p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.newsletter input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    background-color: #1f3d2b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #295c3a;
+}
+
+/* Footer */
+footer {
+    background-color: #1f3d2b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    width: 100%;
+}

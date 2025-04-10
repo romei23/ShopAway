@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin-product.css">
+</head>
+
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Store Logo" class="logo">
+            <h1>Admin Dashboard</h1>
+        </div>
+        <nav class="admin-nav">
+            <ul>
+                <li><a href="admin-upload.html">Bulk Upload</a></li>
+                <li><a href="admin-product.html">Products List</a></li>
+                <li><a href="product-edit.html">Edit Products</a></li>
+                <li><a href="#">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Admin Main Content -->
+    <main class="admin-container">
+        <h2>Product Management</h2>
+
+        <div class="admin-actions">
+            <button class="add-product-btn">+ Add New Product</button>
+            <input type="text" id="search" placeholder="Search products...">
+        </div>
+
+        <!-- Product Table -->
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td><img src="images/sofa.jpg" alt="Product 1"></td>
+                    <td>Living Room Sofa</td>
+                    <td>Furniture</td>
+                    <td>$299.99</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td><img src="images/phone.jpg" alt="Product 2"></td>
+                    <td>Iphone 16 Pro Max</td>
+                    <td>Electronics</td>
+                    <td>$1999.99</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Admin Footer -->
+    <footer class="admin-footer">
+        <p>&copy; 2025 Store Admin Panel. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

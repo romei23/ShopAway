@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Bulk Upload</title>
+    <link rel="stylesheet" href="product-edit.css">
+</head>
+
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Store Logo" class="logo">
+            <h1>Admin Dashboard</h1>
+        </div>
+        <nav class="admin-nav">
+            <ul>
+                <li><a href="admin-upload.html">Bulk Upload</a></li>
+                <li><a href="admin-product.html">Products List</a></li>
+                <li><a href="product-edit.html">Edit Products</a></li>
+                <li><a href="#">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Product Edit Form -->
+    <div class="edit-container">
+        <h2>Edit Product</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="product-id">Product ID:</label>
+                <input type="text" id="product-id" value="101" readonly>
+            </div>
+            <div class="form-group">
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" value="Living Room Sofa">
+            </div>
+            <div class="form-group">
+                <label for="product-description">Description:</label>
+                <textarea id="product-description">A comfortable and stylish sofa for your living room.</textarea>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="furniture" selected>Furniture</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="appliances">Books</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="image-path">Image Path:</label>
+                <input type="text" id="image-path" value="images/sofa.jpg">
+            </div>
+            <div class="form-group">
+                <label for="price">Price ($):</label>
+                <input type="number" id="price" value="299.99" step="0.01">
+            </div>
+            <div class="buttons">
+                <button type="submit" class="save" onclick="window.location.href='admin-product.html'">Save Changes</button>
+                <button type="button" class="cancel" onclick="window.location.href='admin-product.html'">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Store Admin Panel. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
