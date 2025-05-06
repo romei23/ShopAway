@@ -1,79 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Bulk Upload</title>
-    <link rel="stylesheet" href="admin-upload-style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Bulk Upload</title>
+  <link rel="stylesheet" href="admin-upload-style.css" />
 </head>
-
 <body>
-    <!-- Admin Header -->
-    <header class="admin-header">
-        <div class="logo-container">
-            <img src="images/logo.png" alt="Store Logo" class="logo">
-            <h1>Admin Dashboard</h1>
-        </div>
-        <nav class="admin-nav">
-            <ul>
-                <li><a href="admin-upload.html">Bulk Upload</a></li>
-                <li><a href="admin-product.html">Products List</a></li>
-                <li><a href="product-edit.html">Edit Products</a></li>
-                <li><a href="#">Sign Out</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main class="upload-container">
-        <h2>Bulk Upload Products</h2>
-        <p>Upload a file in JSON, CSV, or TXT format to add multiple products at once.</p>
+  <!-- Admin Header -->
+  <header class="admin-header">
+    <div class="logo-container">
+      <img src="images/logo.png" alt="Store Logo" class="logo" />
+      <h1>Admin Dashboard</h1>
+    </div>
+    <nav class="admin-nav">
+      <ul>
+        <li><a href="admin-upload.html">Bulk Upload</a></li>
+        <li><a href="admin-product.html">Products List</a></li>
+        <li><a href="#" id="logout-btn">Sign Out</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <form action="/api/products/upload" method="POST" enctype="multipart/form-data">
-            <label for="jsonFile" class="upload-label">Choose JSON File:</label>
-            <input type="file" id="jsonFile" name="jsonFile" accept=".json" required>
-            <button type="submit" class="upload-btn">Upload File</button>
-        </form>
-        <div id="upload-status" style="margin-top: 10px; color: green;"></div>
+  <main class="upload-container">
+    <h2>Bulk Upload Products</h2>
+    <p>Upload a JSON file to add multiple products at once.</p>
 
+    <!-- ✅ Upload Form -->
+    <form id="bulk-upload-form" enctype="multipart/form-data">
+      <label for="jsonFile" class="upload-label">Choose JSON File:</label>
+      <input type="file" id="jsonFile" name="jsonFile" accept=".json" required />
+      <button type="submit" class="upload-btn">Upload File</button>
+    </form>
 
-        <h3>Example File Format</h3>
-        <pre>
-        [
-            {
-                "product_id": 101,
-                "name": "Living Room Sofa",
-                "description": "Comfortable and stylish sofa.",
-                "category": "Furniture",
-                "image": "images/sofa.jpg",
-                "price": 299.99
-            },
-            {
-                "product_id": 102,
-                "name": "Iphone 16 Pro Max",
-                "description": "Latest iPhone model with advanced features.",
-                "category": "Electronics",
-                "image": "images/iphone.jpg",
-                "price": 1999.99
-            }
-        ]
-        </pre>
-    </main>
+    <div id="upload-status" style="margin-top: 10px; font-weight: bold;"></div>
 
-    <footer>
-        <p>&copy; 2025 Store Admin Panel. All rights reserved.</p>
-    </footer>
+    <!-- ✅ Example -->
+    <h3>Example File Format</h3>
+    <pre>
+[
+  {
+    "name": "Living Room Sofa",
+    "description": "Comfortable and stylish sofa.",
+    "category": "Furniture",
+    "image": "images/sofa.jpg",
+    "price": 299.99
+  },
+  {
+    "name": "Iphone 16 Pro Max",
+    "description": "Latest iPhone model with advanced features.",
+    "category": "Electronics",
+    "image": "images/iphone.jpg",
+    "price": 1999.99
+  }
+]
+    </pre>
+  </main>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('success')) {
-          document.getElementById('upload-status').textContent = "Bulk upload successful!";
-        } else if (urlParams.get('error')) {
-          document.getElementById('upload-status').textContent = "Upload failed. Please try again.";
-          document.getElementById('upload-status').style.color = "red";
+  <footer>
+    <p>&copy; 2025 Store Admin Panel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("bulk-upload-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      const status = document.getElementById("upload-status");
+      status.textContent = "Uploading...";
+
+      try {
+        const res = await fetch("/api/products/upload", {
+          method: "POST",
+          body: formData,
+          credentials: "include"
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || "Upload failed.");
         }
-    </script>
-      
-</body>
 
+        status.textContent = `✅ Upload successful! ${data.count || 0} products added.`;
+        status.style.color = "green";
+      } catch (err) {
+        console.error("❌ Upload error:", err);
+        status.textContent = "❌ Upload failed. Please check the file format.";
+        status.style.color = "red";
+      }
+    });
+  </script>
+  <script src="admin-product.js"></script>
+
+</body>
 </html>

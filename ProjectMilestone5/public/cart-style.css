@@ -90,6 +90,15 @@ header {
     gap: 20px;
 }
 
+#auth-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
 nav ul {
     list-style: none;
     display: flex;

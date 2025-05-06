@@ -94,6 +94,15 @@ header {
     gap: 20px;
 }
 
+#auth-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -193,6 +202,23 @@ nav ul li a:hover {
     justify-content: center;
 }
 
+.product button {
+    background-color: #1f3d2b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.product button:hover {
+    background-color: #295c3a;
+}
+
+
 .product:hover {
     transform: scale(1.05);
     background-color: rgba(31, 61, 43, 0.1);
@@ -207,12 +233,64 @@ nav ul li a:hover {
     object-fit: contain;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 .product p {
     font-size: 16px;
     color: #333;
     margin: 10px 0 0;
     text-align: center;
 }
+.detail-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto 50px;
+    max-width: 700px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .detail-img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    margin-bottom: 20px;
+  }
+  
+  .detail-card .info {
+    text-align: center;
+  }
+  
+  .detail-card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .detail-card p {
+    margin: 5px 0;
+  }
+  
+  .add-to-cart {
+    background-color: #1f3d2b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #295c3a;
+  }
+  
 
 .details-button {
     display: inline-block;
@@ -224,6 +302,46 @@ nav ul li a:hover {
     margin-top: 10px;
     transition: background 0.3s;
 }
+
+.detail-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 120px auto 40px;
+  }
+  
+  .detail-img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .detail-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .detail-info button.add-to-cart {
+    background-color: #1f3d2b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .detail-info button.add-to-cart:hover {
+    background-color: #295c3a;
+  }
+  
 
 .details-button:hover {
     background-color: #295c3a;

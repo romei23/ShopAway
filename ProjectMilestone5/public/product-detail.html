@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="products-style.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-left">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Store Logo" class="logo" />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All Products</a></li>
+          <li class="dropdown">
+            <a href="#">Category ▼</a>
+            <ul class="dropdown-menu">
+              <li><a href="products.html?category=books">Books</a></li>
+              <li><a href="products.html?category=electronics">Electronics</a></li>
+              <li><a href="products.html?category=furniture">Apparel</a></li>
+              <li><a href="products.html?category=home">Home & Kitchen</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <nav>
+        <ul id="auth-links">
+          <li><a href="user-profile.html">Profile</a></li>
+          <li><a href="sign-in.html" id="sign-in-link">Sign In</a></li>
+          <li><a href="#" id="logout-btn" style="display: none;">Logout</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+  
+  </header>
+
+  <main>
+    <section class="product-detail" id="product-detail">
+      <p>Loading product...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ShopAway. All rights reserved.</p>
+  </footer>
+
+  <script src="product-detail.js"></script>
+  <script src="auth.js"></script>
+
+</body>
+</html>

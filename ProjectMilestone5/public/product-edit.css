@@ -48,67 +48,72 @@ html, body {
 /* Product Edit Form */
 .edit-container {
     background: white;
-    padding: 20px;
-    max-width: 500px;
-    margin: 50px auto;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
+    padding: 30px;
+    max-width: 400px;
+    margin: 60px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-container h2 {
     text-align: center;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
+    margin-bottom: 25px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.form-group input, .form-group textarea, .form-group select {
+    margin-bottom: 6px;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
+    padding: 10px;
     border-radius: 5px;
-}
-
-textarea {
-    height: 100px;
-    resize: none;
-}
-
-/* Buttons */
-.buttons {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-}
-
-.save {
+  }
+  
+  .save {
     background-color: #1f3d2b;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 18px;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.save:hover {
+  }
+  
+  .save:hover {
     background-color: #295c3a;
-}
-
-.cancel {
+  }
+  
+  .cancel {
     background-color: #d9534f;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 18px;
     border-radius: 5px;
-    cursor: pointer;
-}
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .cancel:hover {
+    background-color: #c9302c;
+  }
+  
 
 .cancel:hover {
     background-color: #c9302c;

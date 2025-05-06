@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="index-style.css" />
+</head>
+<body>
+    <header>
+        <div class="nav-left">
+            <a href="index.html">
+                <img src="images/logo.png" alt="ShopAway Logo" class="logo" />
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="nav-right">
+            <nav>
+                <ul id="auth-links">
+                    <li><a href="sign-in.html" id="sign-in-link">Sign In</a></li>
+                    <li><a href="#" id="logout-btn" style="display: none;">Logout</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="profile-container" style="padding: 100px 20px 40px;">
+        <section class="user-info" style="margin-bottom: 40px;">
+            <h2>Account Info</h2>
+            <p><strong>Name:</strong> <span id="user-name">Loading...</span></p>
+            <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
+        </section>
+
+        <section class="order-history">
+            <h2>Order History</h2>
+            <div id="orders"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ShopAway. All rights reserved.</p>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="user-profile.js"></script>
+</body>
+</html>

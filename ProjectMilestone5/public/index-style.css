@@ -94,6 +94,15 @@ header {
     gap: 20px;
 }
 
+#auth-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -175,7 +184,7 @@ nav ul li a:hover {
     justify-content: center;
     text-align: center;
     height: 80vh;
-    background-color: rgba(0, 0, 0, 0.6); 
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
     padding: 20px;
     border-radius: 10px;
@@ -361,6 +370,40 @@ nav ul li a:hover {
 .newsletter button:hover {
     background-color: #295c3a;
 }
+
+.order {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+  }
+  
+  .order h3 {
+    color: #1f3d2b;
+    margin-bottom: 10px;
+  }
+  
+  .order ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .order li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .order li img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
 
 /* Footer */
 footer {
