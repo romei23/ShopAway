@@ -1,4 +1,4 @@
-# ShopAll
+# ShopAway
 
 Login information:
 Admin 
