@@ -19,7 +19,7 @@ exports.getUserOrders = (req, res) => {
 
   db.all(query, [userId], (err, rows) => {
     if (err) {
-      console.error("❌ Error fetching orders:", err.message);
+      console.error("Error fetching orders:", err.message);
       return res.status(500).json({ error: 'Failed to fetch orders' });
     }
 

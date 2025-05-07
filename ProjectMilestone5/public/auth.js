@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
           }
 
-          // ✅ Redirect based on user type
+          // Redirect based on user type
           if (data.userType === "admin") {
             window.location.href = "admin-upload.html";
           } else {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         })
         .catch((err) => {
-          console.error("❌ Login error:", err);
+          console.error("Login error:", err);
           alert("Login failed. Please try again.");
         });
     });
@@ -66,11 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
           }
 
-          alert("✅ Account created! You can now sign in.");
+          alert("Account created! You can now sign in.");
           window.location.href = "sign-in.html";
         })
         .catch((err) => {
-          console.error("❌ Signup error:", err);
+          console.error("Signup error:", err);
           alert("Signup failed. Please try again.");
         });
     });
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = "index.html";
         })
         .catch((err) => {
-          console.error("❌ Logout error:", err);
+          console.error("Logout error:", err);
           alert("Logout failed.");
         });
     });

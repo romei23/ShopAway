@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("📄 profile.js loaded");
+    console.log("profile.js loaded");
 
     fetch('/api/auth/session', { credentials: 'include' })
         .then(res => res.json())
@@ -42,6 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         })
         .catch(err => {
-            console.error('❌ Error:', err);
+            console.error('Error:', err);
         });
 });

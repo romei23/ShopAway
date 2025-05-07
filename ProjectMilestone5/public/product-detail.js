@@ -53,21 +53,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 return res.json();
               })
               .then(() => {
-                alert("✅ Product added to cart!");
+                alert("Product added to cart!");
               })
               .catch(err => {
-                console.error("❌ Add to cart error:", err);
-                alert("❌ Could not add to cart.");
+                console.error("Add to cart error:", err);
+                alert("Could not add to cart.");
               });
           })
           .catch(err => {
-            console.error("❌ Session check error:", err);
+            console.error("Session check error:", err);
             alert("Please log in to use the cart.");
           });
       });
     })
     .catch(err => {
-      console.error("❌ Product load error:", err);
+      console.error("Product load error:", err);
       document.getElementById("product-detail").innerHTML = "<p>Product not found.</p>";
     });
 });

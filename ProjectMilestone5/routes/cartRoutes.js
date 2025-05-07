@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cartController = require('../controllers/cartController');
-const { isAuthenticated } = require('../middleware/auth'); // ✅ import middleware
+const { isAuthenticated } = require('../middleware/auth'); // 
 
 /// Instead of requiring userId from URL, use session
 router.get('/', isAuthenticated, cartController.getCart);

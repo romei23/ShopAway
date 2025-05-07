@@ -11,7 +11,7 @@ exports.login = async (req, res) => {
     const match = await bcrypt.compare(password, user.password);
     if (!match) return res.status(400).json({ error: "Incorrect password" });
 
-    // ✅ Store full session info
+    // Store full session info
     req.session.userId = user.id;
     req.session.userType = user.user_type;
     req.session.name = user.name;
@@ -47,10 +47,10 @@ exports.getSession = (req, res) => {
 
 exports.register = async (req, res) => {
     const { name, email, password } = req.body;
-    console.log("📥 Received registration:", { name, email, password }); // 👈 log incoming data
+    console.log("📥 Received registration:", { name, email, password }); // log incoming data
   
     if (!name || !email || !password) {
-      console.log("❌ Missing required fields");
+      console.log("Missing required fields");
       return res.status(400).json({ error: "Missing required fields" });
     }
   
@@ -64,15 +64,15 @@ exports.register = async (req, res) => {
         [now, now, name, email, hashed],
         function (err) {
           if (err) {
-            console.error("❌ Registration error:", err.message); // ✅ log actual SQL error
-            return res.status(500).json({ error: err.message });   // return it to frontend too
+            console.error("Registration error:", err.message); // log actual SQL error
+            return res.status(500).json({ error: err.message });   
           }
-          console.log("✅ User registered:", email);
+          console.log("User registered:", email);
           res.json({ message: "User created" });
         }
       );
     } catch (err) {
-      console.error("❌ Bcrypt error:", err.message);
+      console.error("Bcrypt error:", err.message);
       res.status(500).json({ error: "Internal error" });
     }
   };

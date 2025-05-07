@@ -24,7 +24,7 @@ exports.addToCart = async (req, res) => {
     await cartModel.addItem(userId, productId, quantity);
     res.status(201).json({ message: 'Item added to cart' });
   } catch (error) {
-    console.error('❌ Error adding to cart:', error.message);
+    console.error('Error adding to cart:', error.message);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
@@ -67,7 +67,7 @@ exports.checkoutCart = async (req, res) => {
     await cartModel.clearCart(cartId);
     res.json({ message: "Order placed", orderId });
   } catch (err) {
-    console.error("❌ Checkout error:", err);
+    console.error("Checkout error:", err);
     res.status(500).json({ error: err.message });
   }
 };

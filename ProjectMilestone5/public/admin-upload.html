@@ -27,7 +27,7 @@
     <h2>Bulk Upload Products</h2>
     <p>Upload a JSON file to add multiple products at once.</p>
 
-    <!-- ✅ Upload Form -->
+    <!-- Upload Form -->
     <form id="bulk-upload-form" enctype="multipart/form-data">
       <label for="jsonFile" class="upload-label">Choose JSON File:</label>
       <input type="file" id="jsonFile" name="jsonFile" accept=".json" required />
@@ -36,7 +36,7 @@
 
     <div id="upload-status" style="margin-top: 10px; font-weight: bold;"></div>
 
-    <!-- ✅ Example -->
+    <!-- Example -->
     <h3>Example File Format</h3>
     <pre>
 [
@@ -85,11 +85,11 @@
           throw new Error(data.error || "Upload failed.");
         }
 
-        status.textContent = `✅ Upload successful! ${data.count || 0} products added.`;
+        status.textContent = `Upload successful! ${data.count || 0} products added.`;
         status.style.color = "green";
       } catch (err) {
-        console.error("❌ Upload error:", err);
-        status.textContent = "❌ Upload failed. Please check the file format.";
+        console.error("Upload error:", err);
+        status.textContent = "Upload failed. Please check the file format.";
         status.style.color = "red";
       }
     });

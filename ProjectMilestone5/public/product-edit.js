@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productId = params.get("id");
 
   if (!productId) {
-    alert("❌ Missing product ID.");
+    alert("Missing product ID.");
     window.location.href = "admin-product.html";
     return;
   }
@@ -45,12 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then(res => res.json())
       .then(() => {
-        alert("✅ Product updated!");
+        alert("Product updated!");
         window.location.href = "admin-product.html";
       })
       .catch(err => {
-        console.error("❌ Failed to update product:", err);
-        alert("❌ Error updating.");
+        console.error("Failed to update product:", err);
+        alert("Error updating.");
       });
   });
 });

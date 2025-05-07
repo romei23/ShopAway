@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In | ShopAway</title>
     <link rel="stylesheet" href="auth-style.css">
 </head>
+
 <body>
     <header>
         <div class="nav-left">
             <a href="index.html">
                 <img src="images/logo.png" alt="Store Logo" class="logo">
             </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">All Products</a></li>
-                    <li class="dropdown">
-                        <a href="#">Category ▼</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Books</a></li>
-                            <li><a href="#">Electronics</a></li>
-                            <li><a href="#">Furniture</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </header>
 
@@ -33,21 +21,23 @@
         <h2>Sign In</h2>
         <form id="login-form">
             <label for="email">Email:</label>
-            <input type="email" id="email" required>
-          
-            <label for="password">Password:</label>
-            <input type="password" id="password" required>
-          
-            <button type="submit" class="auth-btn">Sign In</button>
-          </form>
-          
+            <input type="email" id="email" name="email" required>
 
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="auth-btn">Sign In</button>
+        </form>
+        <div id="login-status" style="margin-top: 10px; color: red;"></div>
         <p>Don't have an account? <a href="sign-up.html">Sign Up</a></p>
-       
+
 
 
     </div>
     <script src="auth.js"></script>
+    <script src="sign-in.js"></script>
+
 
 </body>
+
 </html>

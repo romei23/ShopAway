@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     button.closest(".cart-item").remove();
                     updateTotals();
                   })
-                  .catch(err => console.error("❌ Remove failed:", err));
+                  .catch(err => console.error("Remove failed:", err));
               });
             });
           })
           .catch(err => {
-            console.error("❌ Failed to load cart:", err);
+            console.error("Failed to load cart:", err);
             cartContainer.innerHTML = "<p>Failed to load your cart.</p>";
           });
       });
@@ -103,11 +103,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return res.json();
           })
           .then(data => {
-            alert("✅ Order placed successfully!");
+            alert("Order placed successfully!");
             window.location.href = "user-profile.html";
           })
           .catch(err => {
-            console.error("❌ Checkout error:", err);
+            console.error("Checkout error:", err);
             alert("Checkout failed. Please try again.");
           });
       });

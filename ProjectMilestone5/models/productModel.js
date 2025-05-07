@@ -1,5 +1,3 @@
-const { get } = require('../routes/productRoutes');
-
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./ProjectMilestone5/db/shopall.db');
 
@@ -38,38 +36,28 @@ const add = (product) => {
     });
 };
 
-
-
-// Update a product (also converts category name to ID)
+// Update a product
 const update = (id, product) => {
     return new Promise((resolve, reject) => {
         const { name, description, image_url, price, category_id, is_featured } = product;
-        const updatedAt = new Date().toISOString();
-
-        console.log("Running UPDATE with:", name, description, image_url, price, category_id, id);
 
         const query = `
             UPDATE products 
             SET name = ?, description = ?, image_url = ?, price = ?, category_id = ?, is_featured = ?
             WHERE id = ?
-            `;
+        `;
 
         db.run(query, [name, description, image_url, price, category_id, is_featured || 0, id], function (err) {
-
             if (err) {
-                console.error("❌ UPDATE ERROR:", err.message);
+                console.error("UPDATE ERROR:", err.message);
                 return reject(err);
             } else {
-                console.log("✅ SQL UPDATE succeeded");
                 resolve();
             }
         });
     });
 };
 
-
-
-// Get a product by ID
 const getById = (id) => {
     return new Promise((resolve, reject) => {
         const query = `SELECT * FROM products WHERE id = ?`;
@@ -80,7 +68,6 @@ const getById = (id) => {
     });
 };
 
-// Search products by name
 const searchByName = (query) => {
     return new Promise((resolve, reject) => {
         const sql = `SELECT * FROM products WHERE name LIKE ?`;
@@ -91,7 +78,6 @@ const searchByName = (query) => {
     });
 };
 
-// Filter products by category ID
 const filterByCategoryName = (name) => {
     return new Promise((resolve, reject) => {
         const query = `
@@ -107,7 +93,6 @@ const filterByCategoryName = (name) => {
     });
 };
 
-
 const deleteById = (id) => {
     return new Promise((resolve, reject) => {
         db.run("DELETE FROM products WHERE id = ?", [id], function (err) {
@@ -119,11 +104,14 @@ const deleteById = (id) => {
 
 const getCategoryByName = (name) => {
     return new Promise((resolve, reject) => {
-        const sql = `S    console.error("❌ Delete failed:", err.message);
-        ELECT id FROM categories WHERE LOWER(name) = LOWER(?)`;
+        const sql = `SELECT id FROM categories WHERE LOWER(name) = LOWER(?)`;
         db.get(sql, [name], (err, row) => {
-            if (err) reject(err);
-            else resolve(row);
+            if (err) {
+                console.error("getCategoryByName failed:", err.message);
+                reject(err);
+            } else {
+                resolve(row);
+            }
         });
     });
 };
@@ -143,11 +131,7 @@ const getByIdWithCategory = (id) => {
     });
 };
 
-
-
-
-
-// Export all functions
+// Export all
 module.exports = {
     getAll,
     getById,

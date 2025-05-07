@@ -29,14 +29,14 @@ exports.addProduct = async (req, res) => {
             return res.status(400).json({ error: "Category is required" });
         }
 
-        // ✅ Look up category_id by name
+        // Look up category_id by name
         const categoryRow = await productModel.getCategoryByName(category);
         if (!categoryRow) {
             console.error("Category not found in database for:", category);
             return res.status(400).json({ error: "Invalid category name" });
         }
 
-        // ✅ Build product with resolved category_id
+        // Build product with resolved category_id
         const newProduct = {
             name,
             description,
@@ -46,13 +46,13 @@ exports.addProduct = async (req, res) => {
             is_featured: 0 // Optional default
         };
 
-        // ✅ Add to DB
+        // Add to DB
         await productModel.add(newProduct);
 
         res.status(201).json({ message: 'Product added successfully', product: newProduct });
 
     } catch (error) {
-        console.error("❌ Error adding product:", error.message);
+        console.error("Error adding product:", error.message);
         res.status(500).json({ error: error.message });
     }
 };
@@ -81,7 +81,7 @@ exports.updateProduct = async (req, res) => {
         res.json({ message: `Product ${productId} updated`, product: updatedProduct });
 
     } catch (error) {
-        console.error("❌ Error updating product:", error);
+        console.error("Error updating product:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 };
@@ -98,7 +98,7 @@ exports.getProductById = async (req, res) => {
             res.status(404).json({ error: 'Product not found' });
         }
     } catch (error) {
-        console.error("❌ Error fetching product by ID:", error);
+        console.error("Error fetching product by ID:", error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
@@ -150,7 +150,7 @@ exports.searchProducts = async (req, res) => {
         const results = await productModel.searchByName(q);
         res.json(results);
     } catch (err) {
-        console.error("❌ Search error:", err.message);
+        console.error("Search error:", err.message);
         res.status(500).json({ error: "Internal server error" });
     }
 };
@@ -163,7 +163,7 @@ exports.filterByCategory = async (req, res) => {
         const products = await productModel.filterByCategoryName(categoryName);
         res.json(products);
     } catch (err) {
-        console.error("❌ Error filtering by category:", err.message);
+        console.error("Error filtering by category:", err.message);
         res.status(500).json({ error: "Internal server error" });
     }
 };
